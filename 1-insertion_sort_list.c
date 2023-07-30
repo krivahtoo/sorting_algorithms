@@ -2,39 +2,6 @@
 #include <stdio.h>
 
 /**
- * sorted_insert - insert a new node into the sorted doubly linked list
- *
- * @h: sorted head
- * @n: new node to insert
- */
-void sorted_insert(listint_t **h, listint_t *n)
-{
-	listint_t *cur;
-
-	if (*h == NULL || (*h)->n >= n->n)
-	{
-		n->next = *h;
-		n->prev = NULL;
-		if (*h != NULL)
-			(*h)->prev = n;
-		*h = n;
-	}
-	else
-	{
-		cur = *h;
-
-		while (cur->next != NULL && cur->next->n < n->n)
-			cur = cur->next;
-
-		n->next = cur->next;
-		if (cur->next != NULL)
-			cur->next->prev = n;
-		cur->next = n;
-		n->prev = cur;
-	}
-}
-
-/**
  * insertion_sort_list - sorts a doubly linked list of integers in ascending
  * order using the Insertion sort algorithm
  *
