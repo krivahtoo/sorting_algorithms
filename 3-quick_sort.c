@@ -37,10 +37,13 @@ int partition(int *array, int lo, int hi, size_t size)
 		{
 			i++;
 			swap(array + i, array + j);
-			print_array(array, size);
+			if (array[j] != array[i])
+				print_array(array, size);
 		}
 	i++;
 	swap(array + i, array + hi);
+	if (array[i] != array[hi])
+		print_array(array, size);
 
 	return (i);
 }
